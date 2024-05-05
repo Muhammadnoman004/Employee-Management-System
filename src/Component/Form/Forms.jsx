@@ -2,6 +2,8 @@ import React from 'react'
 import { useForm } from 'react-hook-form';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { AddEmployee } from '../../Services/firebase.services';
+import { Modal } from 'react-bootstrap';
 
 export default function Forms() {
 
@@ -12,9 +14,9 @@ export default function Forms() {
         formState: { errors },
     } = useForm()
 
-
-    const formSubmit = (data) => {
-        console.log(data);
+    const formSubmit = async (data) => {
+        const AddData = await AddEmployee(data);
+        reset()
     }
 
     return (
@@ -68,10 +70,14 @@ export default function Forms() {
                     })} />
                     {/* {errors.position && <p>{errors.supervisor.message}</p>} */}
                 </Form.Group>
-
-                <Button variant="primary" type="submit">
-                    Add Employee
-                </Button>
+                <Modal.Footer>
+                    <Button variant="secondary">
+                        Close
+                    </Button>
+                    <Button variant="primary" type="submit">
+                        Add Employee
+                    </Button>
+                </Modal.Footer>
             </form>
 
         </div>
