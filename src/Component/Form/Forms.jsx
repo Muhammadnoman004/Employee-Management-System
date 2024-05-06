@@ -63,7 +63,7 @@ export default function Forms({ setShow, show }) {
 
                 <Form.Group className='mb-3'>
                     <Form.Label>Supervisors</Form.Label>
-                    <Form.Select aria-label="Default select example" defaultValue="default" {...register("supervisors", {
+                    <Form.Select aria-label="Default select example" defaultValue="default" {...register("supervisorsID", {
                         required: {
                             value: false,
                             message: "Select your reporting supervisor!"

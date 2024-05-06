@@ -4,13 +4,14 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Modals from './Component/Modal/Modals'
 import EmployeeTable from './Table/EmployeeTable'
+import AllEmpolyeePage from './Pages/AllEmployeePage/AllEmpolyeePage'
 
 function App() {
 
   return (
     <>
       <Modals />
-      <EmployeeTable />
+      <AllEmpolyeePage />
     </>
   )
 }
