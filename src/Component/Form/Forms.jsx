@@ -5,7 +5,8 @@ import Form from 'react-bootstrap/Form';
 import { AddEmployee } from '../../Services/firebase.services';
 import { Modal } from 'react-bootstrap';
 
-export default function Forms() {
+export default function Forms({ setShow, show }) {
+    const handleClose = () => setShow(false);
 
     const {
         register,
@@ -71,7 +72,7 @@ export default function Forms() {
                     {/* {errors.position && <p>{errors.supervisor.message}</p>} */}
                 </Form.Group>
                 <Modal.Footer>
-                    <Button variant="secondary">
+                    <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
                     <Button variant="primary" type="submit">

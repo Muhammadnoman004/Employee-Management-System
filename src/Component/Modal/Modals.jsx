@@ -17,12 +17,7 @@ export default function Modals() {
                 <Modal.Header closeButton>
                     <Modal.Title>Employee Info.</Modal.Title>
                 </Modal.Header>
-                <Modal.Body><Forms /></Modal.Body>
-                {/* <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                </Modal.Footer> */}
+                <Modal.Body><Forms show={show} setShow={setShow} /></Modal.Body>
             </Modal>
         </>
     )
