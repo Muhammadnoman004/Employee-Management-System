@@ -8,3 +8,21 @@ td {
     word-break: break-all;
     text-align: center;
 }
+
+.loaderDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: #80808027;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+#spinner {
+    width: 70px;
+    height: 70px;
+}

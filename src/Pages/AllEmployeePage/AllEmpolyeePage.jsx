@@ -1,16 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { getData } from '../../Services/firebase.services'
 import EmployeeTable from '../../Table/EmployeeTable';
 import { Table } from 'react-bootstrap';
+import LoaderComponent from '../../Component/LoaderComponent/LoaderComponent';
+import loading from '../../Context/Context';
 
 export default function AllEmpolyeePage() {
 
+    const [loader, setloader] = useContext(loading);
     const [AllEmployees, setAllEmployees] = useState(null)
 
     useEffect(() => {
+        setloader(true)
         const unsubscribe = getData((EmployeeList) => {
             // console.log("EmployeeList ==>", EmployeeList);
             setAllEmployees(EmployeeList);
+            setloader(false)
         });
         return () => unsubscribe();
     }, [])
@@ -37,7 +42,9 @@ export default function AllEmpolyeePage() {
                         return <EmployeeTable key={index} {...data} index={index} />
                     })
                 ) : (
-                    <h1>loading...</h1>
+
+                    loader && <LoaderComponent />
+
                 )
             }
         </>
